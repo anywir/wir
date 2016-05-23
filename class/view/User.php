@@ -22,6 +22,11 @@ class User
             $title = "Acces denied!";
             $warning = "EMail or password is wrong!";
             include_once "templates/warning.php";
+        }elseif ($login=="nolog")
+        {
+            $title = "Acces denied!";
+            $warning = "you are not authorised, please login.";
+            include_once "templates/warning.php";
         }
         include_once "templates/userlogin.php";
 

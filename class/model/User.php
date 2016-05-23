@@ -25,7 +25,7 @@ interface UserInterface {
      * @return mixed - має повернути true, якщо вихід відбувся вдало
      */
 
-    public function logout();
+    public static function logout();
 
     /**
      * @param string $email - mail
@@ -88,7 +88,7 @@ class User implements UserInterface
      * @return mixed - має повернути true, якщо вихід відбувся вдало
      */
 
-    public function logout()
+    public static function logout()
     {
         setcookie("auth","",time()-600,"/");
         setcookie("token","",time()-600,"/");

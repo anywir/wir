@@ -22,9 +22,17 @@ class Comment
 
     public function addAction()
     {
-        $this->model = new \model\Comment();
-        $this->model->addMessage($_COOKIE['id'],$_POST['id_article'],$_POST['id_reply'],$_POST['text'],$_POST['title']);
-        header("Location:".$_SERVER['HTTP_REFERER']);
+        if(\model\User::IsTrueUser())
+        {
+            $this->model = new \model\Comment();
+            $this->model->addMessage($_COOKIE['id'],$_POST['id_article'],$_POST['id_reply'],$_POST['text'],$_POST['title']);
+            header("Location:".$_SERVER['HTTP_REFERER']);
+        }
+        else
+        {
+            \model\User::logout();
+            header("Refresh:1;url=" . SITE . "user/login?login=nolog");
+        }
     }
 
 
@@ -57,9 +65,18 @@ class Comment
     public function del()
     {
         //додати перевірку на всі методи редагування видалення вставки, що юзер реальний і має на це право
-        $idComment = $_GET['id'];
-        $this->model = new \model\Comment();
-        $this->model->delete($idComment);
-        header("Location:".$_SERVER['HTTP_REFERER']);
+        if(\model\User::IsTrueUser())
+        {
+            $idComment = $_GET['id'];
+            $this->model = new \model\Comment();
+            $this->model->delete($idComment);
+            header("Location:" . $_SERVER['HTTP_REFERER']);
+        }
+        else
+        {
+            \model\User::logout();
+            header("Refresh:1;url=" . SITE . "user/login?login=nolog");
+        }
+
     }
 }

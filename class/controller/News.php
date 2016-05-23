@@ -70,10 +70,19 @@ class News extends Controller
 
     public function delNews()
     {
-        $idNews = $_GET['id'];
-        $this->model = new \model\News();
-        $this->model->delete($idNews);
-        header("Location:".$_SERVER['HTTP_REFERER']);
+        if(\model\User::IsTrueUser())
+        {
+            $idNews = $_GET['id'];
+            $this->model = new \model\News();
+            $this->model->delete($idNews);
+            header("Location:" . $_SERVER['HTTP_REFERER']);
+        }
+        else
+        {
+            \model\User::logout();
+            header("Refresh:1;url=" . SITE . "user/login?login=nolog");
+        }
+
     }
 
     public function subs()
