@@ -12,25 +12,12 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script type="text/javascript" src="<?=SITE?>lib/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<?=SITE?>lib/summernote/summernote.min.js"></script>
-
-<script language="javascript">
-
-   $(document).ready(function(){
-//при нажатию на любую кнопку, имеющую класс .modalbtn
-       $(".modalbtn").click(function(e) {
-           var id = e.target.id;// получаем ID
-           if (id) {
-               var myID = $("#" + id).attr("article_id"); //получить значение любого атрибута вьізвавшего ф-ю
-               $("#id_article").attr('value',myID);
-               $("#id_reply").attr('value',id);
-
-               $("#modal").modal('show');
-           }
-       });
-       $('#summernote').summernote();
-   });
-
+<script type="text/javascript">
+    var PATH="<?=SITE?>";
 </script>
+<script type="text/javascript" src="<?=SITE?>lib/js/script.js"></script>
+
+
 
 </div>
 </body>

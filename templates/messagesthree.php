@@ -51,29 +51,9 @@ function build_tree($cats, $parent_id)
     return $tree;
 }
 
-build_tree($thread, 0);
 
-//$parent_id - какой parentid считать корневым
-//по умолчанию 0 (корень)
-/*
-function build_tree($cats, $parent_id)
-{
-    if (is_array($cats) && isset($cats[$parent_id])) {
-        $tree = '<ul>';
-        foreach ($cats[$parent_id] as $cat) {
-            $tree .= '<li>' . $cat['name'];
-            $tree .= build_tree($cats, $cat['id']);
-            $tree .= '</li>';
-        }
-        $tree .= '</ul>';
-    } else {
-        return false;
-    }
-    return $tree;
-}
 
-*/
-
+ build_tree($thread, 0);
 ?>
 
 

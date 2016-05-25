@@ -21,14 +21,27 @@
         <label for="exampleInputEmail1">Birthdate</label>
         <input name="birthday" type="date" class="form-control" id="exampleInputEmail1" placeholder="birthday">
     </div>
+    <!--
     <div class="form-group">
         <label for="exampleInputEmail1">City</label>
         <select class="form-control" name="city">
-            <?php foreach ($cities as $city)
-            { ?>
-                <option value = "<?=$city['id'];?>"><?=$city['name'];?></option>
-            <?php } ?>
+            <?php /*foreach ($cities as $city)
+            { */?>
+                <option value = "<?/*=$city['id'];*/?>"><?/*=$city['name'];*/?></option>
+            <?php /*} */?>
         </select>
+    </div>
+    -->
+
+    <div>
+        <input type="hidden" name="city" id="cityId">
+        <input type="text" id="city" name="city" placeholder="Kyiv">
+
+        <div>
+            <ul id="cityList">
+
+            </ul>
+        </div>
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">Avatar</label>

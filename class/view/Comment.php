@@ -11,6 +11,19 @@ namespace view;
 
 class Comment
 {
+    public function buildTree($items, $parent_id)
+    {
+
+        if (is_array($items) && isset($items[$parent_id]))
+        {
+            include "templates/messthreeitem.php"; //include_once םו ןנאצ‏÷
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public function showAddForm()
     {
 
@@ -33,7 +46,8 @@ class Comment
         include_once "templates/menu.php";
 
         include_once "templates/onenews.php";
-        include_once "templates/messagesthree.php";
+        $this->buildTree($thread,0);
+        //        include_once "templates/messagesthree.php";
         include_once "templates/modaladdmesage.php";
         include_once "templates/footer.php";
 

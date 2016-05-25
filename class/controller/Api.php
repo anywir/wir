@@ -22,7 +22,7 @@ class Api
             $res = $this->model->$methodName();
             $json = json_encode($res);
         }
-        header('Content-type: application/json');
+        //header('Content-type: application/json');
         echo $json;
 
         // для кожного апі треба в моделі робити метод під апі, де парситься POST чи GET
