@@ -1,9 +1,11 @@
 <form action="<?=SITE."user/joinAction"?>" method="post"
       enctype="multipart/form-data"
       style="margin: 0 auto; width: 500px">
-    <div class="form-group">
-        <div class="hidden" id="alert"></div>
+    <div class="form-group" id="email_f">
         <label for="email">Email address</label>
+        <div class=" alert alert-danger" style="display: none" id="alert">
+            <strong>ERROR</strong> this address is exist
+        </div>
         <input name="email" type="email" class="form-control" id="email" placeholder="Email">
     </div>
     <div class="form-group">
