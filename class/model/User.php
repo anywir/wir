@@ -142,10 +142,10 @@ class User implements UserInterface
     }
 
 
-    public function isExistUser($login)
+    public function isExistUser($login=null)
     {
         $DBase = new DB(null);
-        //$sql = "SELECT count(id) as count FROM `user_login` WHERE `email` = \"$login\"";
+        $login = ($login?$login:$_GET['email']);
         $users = $DBase->select("user_login",["count(id)"],['email'=>$login])[0];
         if ($users['count']>0)
         {
