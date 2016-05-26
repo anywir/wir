@@ -1,3 +1,13 @@
+<div class="col-lg-3">
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Avatar</label>
+        <img src="<?=SITE?>avatares/default.png" class="img-responsive" alt="Responsive image" >
+        <input name="avatar" type="file" class="form-control" id="avatar" placeholder="You avatar" accept=".txt,image/*">
+        <div class="ajax-respond"></div>
+    </div>
+</div>
+<div class="col-md-5" >
 <form action="<?=SITE."user/joinAction"?>" method="post"
       enctype="multipart/form-data"
       style="margin: 0 auto; width: 500px">
@@ -35,11 +45,6 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="exampleInputEmail1">Avatar</label>
-        <input name="avatar" type="file" class="form-control" id="avatar" placeholder="You avatar" accept=".txt,image/*">
-        <div class="ajax-respond"></div>
-    </div>
-    <div class="form-group">
         <label for="exampleInputPassword1">Password</label>
         <input name="pass" type="password" class="form-control" id="pass_a" placeholder="Password">
     </div>
@@ -49,3 +54,4 @@
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
 </form>
+</div>

@@ -21,7 +21,7 @@ class Images
             $error = false;
             $files = array();
 
-            $uploaddir ='avatares/'; // . - текущая папка где находится submit.php
+            $uploaddir ='avatares/'; // куди зберігати аватарки
 
             // Создадим папку если её нет
 
@@ -30,7 +30,7 @@ class Images
             // переместим файлы из временной директории в указанную
             foreach( $_FILES as $file ){
                 if( move_uploaded_file( $file['tmp_name'], $uploaddir . basename($file['name']) ) ){
-                    $files[] = realpath( $uploaddir . $file['name'] );
+                    $files[] = $file['name'];
                 }
                 else{
                     $error = true;
