@@ -36,7 +36,8 @@
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">Avatar</label>
-        <input name="avatar" type="file" class="form-control" id="avatar" placeholder="You avatar">
+        <input name="avatar" type="file" class="form-control" id="avatar" placeholder="You avatar" accept=".txt,image/*">
+        <div class="ajax-respond"></div>
     </div>
     <div class="form-group">
         <label for="exampleInputPassword1">Password</label>
