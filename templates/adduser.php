@@ -3,7 +3,7 @@
     <div class="form-group">
         <label for="exampleInputEmail1">Avatar</label>
         <img src="<?=SITE?>avatares/default.png" class="img-responsive" alt="Responsive image" >
-        <input name="avatar" type="file" class="form-control" id="avatar" placeholder="You avatar" accept=".txt,image/*">
+        <input name="avatar_pre" type="file" class="form-control" id="avatar_pre" placeholder="You avatar" accept=".txt,image/*">
         <div class="ajax-respond"></div>
     </div>
 </div>
@@ -40,10 +40,10 @@
 
         <div>
             <ul id="cityList" class="dropdown-menu">
-
             </ul>
         </div>
     </div>
+    <input name="avatar" id="avauser" hidden>
     <div class="form-group">
         <label for="exampleInputPassword1">Password</label>
         <input name="pass" type="password" class="form-control" id="pass_a" placeholder="Password">

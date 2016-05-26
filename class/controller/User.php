@@ -93,7 +93,7 @@ class User extends Controller
 
         $this->model = new \model\User();
         $this->model->logout(); // logout поточного користувача
-        $res = $this->model->registrUser($_POST['email'],$_POST['pass'],$_POST['name'],$_POST['l_name'],$_POST['birthday'],$_POST['city'],$_POST['phone'],$_FILES["avatar"]);
+        $res = $this->model->registrUser($_POST['email'],$_POST['pass'],$_POST['name'],$_POST['l_name'],$_POST['birthday'],$_POST['city'],$_POST['phone'],$_POST["avatar"]);
         if ($res>0)
         {
             $this->model->login($_POST['email'], $_POST['pass']);

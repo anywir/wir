@@ -106,17 +106,15 @@ class User implements UserInterface
         {
             $DBase = new DB(null);
             $id = $DBase->insert("user_login", ["email" => $email, "pass" => hash("md5", $pass)]);
-
-            if ($avatar['name'])
+            if ($avatar)
             {
-                $filename = $id . $avatar['name'];
-                copy($avatar['tmp_name'],"avatares/" . $filename);
+                $filename = $id.$avatar;
+                rename("avatares/".$avatar,"avatares/".$filename);
             }
             else
             {
-                $filename = "";
+                $filename = "default.png";
             }
-
             $DBase->insert("user_data",
                 ["id" => $id, "name" => $name, "l_name" => $l_name, "birthdate" => $birthdate,
                     "idCity" => $idCity, "phone" => $phone, "avatar" => $filename, "regDate" => date('Y-m-d H:i:s')]);
