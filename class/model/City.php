@@ -28,10 +28,10 @@ class City
     }
 
 
-    public function getCity($id)
+    public static function getCity($id)
     {
         $dbase = new DB();
-        $city = $dbase->select("city",null,['id'=>$id],"name",null,[0,1])[0]['nanme'];
+        $city = $dbase->select("city",null,['id'=>$id],"name",null,[0,1])[0]['name'];
         return $city;
     }
 }

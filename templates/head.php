@@ -5,7 +5,7 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="<?=SITE?>lib/css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="<?=SITE?>lib/css/bs_callout.css"/>
-    <link rel="stylesheet" type="text/css" href="<?=SITE?>lib/css/bs_callout.css"/>
+    <link rel="stylesheet" type="text/css" href="<?=SITE?>lib/css/drop.css"/>
     <link rel="stylesheet" type="text/css" href="<?=SITE?>lib/summernote/summernote.css"/>
 
     <style>

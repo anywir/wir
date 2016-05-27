@@ -26,12 +26,10 @@ class User extends Controller
     {
         $this->model = new \model\User();
         $userData = $this->model->getUserData($_GET['id']);
-        $city = new \model\City();
-        $cities = $city->getCity($userData['idCity']);
         $subs = new \model\Subs();
         $userSubs = $subs->getSubs($_GET['id']);
         $this->view = new \view\User();
-        $this->view->showUser($cities,$userData,$userSubs,null);
+        $this->view->showUser($userData,$userSubs,null);
     }    
     
     public function home() //домашня сторінка користувача, редагувати
@@ -39,19 +37,16 @@ class User extends Controller
         $edit = true;
         $this->model = new \model\User();
         $userData = $this->model->getUserData($_COOKIE['id']);
-        $city = new \model\City();
-        $cities = $city->getAll();
         $subs = new \model\Subs();
         $userSubs = $subs->getSubs($_COOKIE['id']);
         $this->view = new \view\User();
-        $this->view->showUser($cities,$userData,$userSubs,$edit);
-
+        $this->view->showUser($userData,$userSubs,$edit);
     }
 
     public function update()
     {// зберегти зміни
         $this->model = new \model\User();
-        $this->model->userUpdate($_COOKIE['id'],$_POST['name'],$_POST['l_name'],$_POST['birthday'],$_POST['idCity'],$_POST['phone'],$_FILES['avatar']);
+        $this->model->userUpdate($_COOKIE['id'],$_POST['name'],$_POST['l_name'],$_POST['birthday'],$_POST['cityId'],$_POST['phone'],$_FILES['avatar']);
         header("Location:".$_SERVER['HTTP_REFERER']);
     }
     
@@ -93,7 +88,7 @@ class User extends Controller
 
         $this->model = new \model\User();
         $this->model->logout(); // logout поточного користувача
-        $res = $this->model->registrUser($_POST['email'],$_POST['pass'],$_POST['name'],$_POST['l_name'],$_POST['birthday'],$_POST['city'],$_POST['phone'],$_POST["avatar"]);
+        $res = $this->model->registrUser($_POST['email'],$_POST['pass'],$_POST['name'],$_POST['l_name'],$_POST['birthday'],$_POST['cityId'],$_POST['phone'],$_POST["avatar"]);
         if ($res>0)
         {
             $this->model->login($_POST['email'], $_POST['pass']);

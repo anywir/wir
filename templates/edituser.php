@@ -24,15 +24,15 @@
         <input name="birthday" type="date" class="form-control" id="exampleInputEmail1" placeholder="birthday" value="<?=$userData['birthdate']?>">
     </div>
     <div class="form-group">
-        <label for="exampleInputEmail1">City</label>
-        <select class="form-control" name="city">
-            <?php foreach ($cities as $city)
-{ ?>
-    <option <?=($city['id']==$userData['idCity'])?  "selected" : "" ?> value = "<?=$city['id'];?>" ><?=$city['name'];?></option>
-<?php } ?>
-</select>
-</div>
-<div class="form-group">
+        <input type="hidden" name="cityId" id="cityId">
+        <input type="text" id="city" name="city" placeholder="Kyiv" autocomplete="off" value="<?=$userData['city']?>">
+
+        <div id="select">
+            <ul id="cityList" class="droplist">
+            </ul>
+        </div>
+    </div>
+    <div class="form-group">
     <label for="exampleInputEmail1">Avatar</label>
     <input name="avatar" type="file" class="form-control" id="exampleInputEmail1" placeholder="You avatar">
 </div>

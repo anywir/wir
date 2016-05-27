@@ -29,7 +29,8 @@ class Images
 
             // переместим файлы из временной директории в указанную
             foreach( $_FILES as $file ){
-                if( move_uploaded_file( $file['tmp_name'], $uploaddir . basename($file['name']) ) ){
+
+                if( copy( $file['tmp_name'], $uploaddir . $file['name'] ) ){
                     $files[] = $file['name'];
                 }
                 else{

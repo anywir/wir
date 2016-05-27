@@ -1,11 +1,12 @@
 <div class="col-lg-3">
-
+<form>
     <div class="form-group">
         <label for="exampleInputEmail1">Avatar</label>
         <img src="<?=SITE?>avatares/default.png" class="img-responsive" alt="Responsive image" >
         <input name="avatar_pre" type="file" class="form-control" id="avatar_pre" placeholder="You avatar" accept=".txt,image/*">
         <div class="ajax-respond"></div>
     </div>
+</form>
 </div>
 <div class="col-md-5" >
 <form action="<?=SITE."user/joinAction"?>" method="post"
@@ -34,12 +35,12 @@
         <label for="birthday">Birthdate</label>
         <input name="birthday" type="date" class="form-control" id="birthday" placeholder="birthday">
     </div>
-    <div>
-        <input type="hidden" name="city" id="cityId">
-        <input type="text" id="city" name="city" placeholder="Kyiv">
+    <div class="form-group">
+        <input type="hidden" name="cityId" id="cityId">
+        <input type="text" id="city" name="city" placeholder="Kyiv" autocomplete="off">
 
-        <div>
-            <ul id="cityList" class="dropdown-menu">
+        <div id="select">
+            <ul id="cityList" class="droplist">
             </ul>
         </div>
     </div>

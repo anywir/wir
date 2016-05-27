@@ -131,6 +131,7 @@ class User implements UserInterface
     {
         $DBase = new DB(null);
         $userData = $DBase->select("user_data",false,['id'=>$id],false,false,[0,1])[0];
+        $userData['city'] = City::getCity($userData['idCity']);//вибираємо місто для користувача
         return $userData;
     }
 

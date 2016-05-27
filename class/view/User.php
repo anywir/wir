@@ -50,7 +50,7 @@ class User
 
     }
 
-    public function  showUser($cities,$userData,$subs,$edit)
+    public function  showUser($userData,$subs,$edit)
     {
         include_once "templates/head.php";
         $active = "user";

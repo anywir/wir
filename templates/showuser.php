@@ -10,7 +10,7 @@
     <p><?=$userData['l_name']?></p>
     <p class="glyphicon glyphicon-phone-alt"> <?=$userData['phone']?></p>
     <p>birthday <?=$userData['birthdate']?></p>
-    <p>city <?=$city?></p>
+    <p>city <?=$userData['city']?></p>
     <p class="text-right"><a href="<?= SITE ?>news/getall?id=<?= $userData['id'] ?>" class="btn btn-success"
                              role="button">Articles</a></p>
 </div>

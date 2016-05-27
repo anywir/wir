@@ -1,0 +1,29 @@
+ul.droplist li {
+    position: relative;
+    color:#fff;
+    background:#9d9d9d;
+    box-shadow:1px 1px 1px rgba(0,0,0,0.75);
+    -moz-border-radius:2px;
+    border-radius:2px;
+    padding: 2px 5px;
+    margin: 1px;
+    display:block;
+    float:none;
+
+}
+ul.droplist li:hover
+{
+    background:#6b0c36;
+}
+ul.droplist,
+ul.droplist-inside {
+    list-style-type: none;
+    padding: 0;
+    position: absolute;
+
+
+}
+ul.droplist-inside {
+    position: absolute;
+    left: -9999px;
+}
