@@ -108,7 +108,7 @@ class User implements UserInterface
             $id = $DBase->insert("user_login", ["email" => $email, "pass" => hash("md5", $pass)]);
             if ($avatar)
             {
-                $filename = $id.$avatar;
+                $filename = preg_replace("/imgtmp/i",$id."userava",$avatar);
                 rename("avatares/".$avatar,"avatares/".$filename);
             }
             else
@@ -161,6 +161,8 @@ class User implements UserInterface
         if ($avatar['name'])
         {
             $filename = $idUser . $avatar['name'];
+            //$imginf=(getimagesize($avatar['tmp_name']));
+            //print_r($imginf);
             copy($avatar['tmp_name'],"avatares/" . $filename);
         }
         else
@@ -168,7 +170,7 @@ class User implements UserInterface
             $filename = "";
         }
         $DBase = new DB(null);
-        $DBase->update("user_data",["id"=>$idUser],["idCity"=>$idCity,"name"=>$name,"l_name"=>$l_name,"phone"=>$phone,"birthdate"=>$birthdate,"avatar"=>$filename]); 
+        $DBase->update("user_data",["id"=>$idUser],["idCity"=>$idCity,"name"=>$name,"l_name"=>$l_name,"phone"=>$phone,"birthdate"=>$birthdate,$filename?["avatar"=>$filename]:null]);
     }
 
     public function getAll()//для апі
@@ -176,6 +178,22 @@ class User implements UserInterface
         $DBase = new DB(null);
         $userData = $DBase->select("user_data",false);
         return $userData;
+    }
+
+
+    public function loadAva()
+    {
+        if( isset( $_GET['upload'] ) )
+        {
+            $error = false;
+            $files = array();
+
+            $uploaddir = 'avatares/'; // куди зберігати аватарки
+
+            if (!is_dir($uploaddir)) mkdir($uploaddir, 0777);
+            $data = json_encode(\core\Images::loadintemp($_FILES, $uploaddir));
+            return $data;
+        }
     }
 
     public function __construct()
