@@ -14,14 +14,14 @@
       style="margin: 0 auto; width: 500px">
     <div class="form-group" id="email_f">
         <label for="email">Email address</label>
-        <div class=" alert alert-danger" style="display: none" id="alert">
+        <div class=" alert alert-danger" style="display: none" id="alertEmail">
             <strong>ERROR</strong> this address is exist
         </div>
         <input name="email" type="email" class="form-control" id="email" placeholder="Email">
     </div>
     <div class="form-group">
         <label for="name">Name</label>
-        <input name="name" type="text" class="form-control" id="name" placeholder="Name" value="<?=$name?>">
+        <input name="name" type="text" class="form-control" id="name" placeholder="Name" >
     </div>
     <div class="form-group">
         <label for="l_name">Last Name</label>
@@ -46,13 +46,17 @@
     </div>
     <input name="avatar" id="avauser" hidden>
     <div class="form-group">
+        <div class=" alert alert-danger" style="display: none" id="alertPass">
+            <strong>ERROR</strong> password is not equal
+        </div>
         <label for="exampleInputPassword1">Password</label>
         <input name="pass" type="password" class="form-control" id="pass_a" placeholder="Password">
     </div>
-    <div class="form-group">
+    <div class="form-group" id="pass_f">
         <label for="exampleInputPassword1">Confirm password</label>
         <input name="confirmPass" type="password" class="form-control" id="pass_b" placeholder="Password">
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+
+    <button type="submit" class="btn btn-default" id="subtn">Submit</button>
 </form>
 </div>
