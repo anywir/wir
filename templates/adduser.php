@@ -2,6 +2,7 @@
 <form>
     <div class="form-group">
         <label for="exampleInputEmail1">Avatar</label>
+        <div class=" alert alert-danger" style="display: none" id="alertAva"></div>
         <img src="<?=SITE?>avatares/default.png" class="img-responsive" alt="Responsive image" >
         <input name="avatar_pre" type="file" class="form-control" id="avatar_pre" placeholder="You avatar" accept=".txt,image/*">
         <div class="ajax-respond"></div>
@@ -14,9 +15,7 @@
       style="margin: 0 auto; width: 500px">
     <div class="form-group" id="email_f">
         <label for="email">Email address</label>
-        <div class=" alert alert-danger" style="display: none" id="alertEmail">
-            <strong>ERROR</strong> this address is exist
-        </div>
+        <div class=" alert alert-danger" style="display: none" id="alertEmail"></div>
         <input name="email" type="email" class="form-control" id="email" placeholder="Email">
     </div>
     <div class="form-group">
@@ -45,14 +44,12 @@
         </div>
     </div>
     <input name="avatar" id="avauser" hidden>
-    <div class="form-group">
-        <div class=" alert alert-danger" style="display: none" id="alertPass">
-            <strong>ERROR</strong> password is not equal
-        </div>
+    <div class="form-group" id="pass_f">
+        <div class=" alert alert-danger" style="display: none" id="alertPass"></div>
         <label for="exampleInputPassword1">Password</label>
         <input name="pass" type="password" class="form-control" id="pass_a" placeholder="Password">
-    </div>
-    <div class="form-group" id="pass_f">
+
+
         <label for="exampleInputPassword1">Confirm password</label>
         <input name="confirmPass" type="password" class="form-control" id="pass_b" placeholder="Password">
     </div>
